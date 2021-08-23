@@ -8,6 +8,8 @@ Api ini dibuat untuk kebutuhan pribadi. Karena kebanyak website cv tidak memilik
 
 ## Features
 * Post message from contact me
+* Upload Single Image
+* Upload Beberapa file
 
 ## Reporting Issues
 
@@ -29,7 +31,6 @@ Dan email yang kamu gunakan harus :
 
 # DOC API
 
-----
 **Send Message**
 ----
   Mengirim pesan balasan dari contact me
@@ -83,6 +84,139 @@ Dan email yang kamu gunakan harus :
             "description": "535-5.7.8 Username and password not accepted. Learn more at\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials c64sm10936922pfc.8 - gsmtp"
          }
         ```
+
+**Upload Single Image**
+----
+  Upload image 
+
+* **URL**
+
+  http://localhost:3000/upload_avatar
+
+* **Method:**
+  
+  `POST`
+
+* **Request Headers**
+
+   none
+  
+* **URL Params**
+
+   none
+
+* **Data Params**
+
+  | key | value | required |
+  | :---: | :---: | :---: |
+  | avatar | Files | true |
+
+
+
+* **Success Response:**
+  
+  
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+    { 
+      "message": "Single file upload success", 
+      "file": {
+        "fieldname": "avatar",
+        "originalname": "acombine function into class.PNG",
+        "encoding": "7bit",
+        "mimetype": "image/png",
+        "destination": "./assets/images",
+        "filename": "1629691028532--acombine function into class.PNG",
+        "path": "assets\\images\\1629691028532--acombine function into class.PNG",
+        "size": 16208
+      } 
+    }
+    ```
+ 
+* **Error Response:**
+
+    * **Code:** 400 Failed upload image<br />
+        **Content:** 
+        ```json
+        { 
+            "message": "Failed upload image!",
+            "description": "Error Message"
+         }
+        ```
+
+**Upload Images**
+----
+  Upload image 
+
+* **URL**
+
+  http://localhost:3000/upload_images
+
+* **Method:**
+  
+  `POST`
+
+* **Request Headers**
+
+   none
+  
+* **URL Params**
+
+   none
+
+* **Data Params**
+
+  | key | value | required |
+  | :---: | :---: | :---: |
+  | images | Files | true |
+
+
+
+* **Success Response:**
+  
+  
+  * **Code:** 200 OK <br />
+    **Content:** 
+    ```json
+    [
+      { 
+        "fieldname": "avatar",
+        "originalname": "acombine function into class.PNG",
+        "encoding": "7bit",
+        "mimetype": "image/png",
+        "destination": "./assets/images",
+        "filename": "1629691028532--acombine function into class.PNG",
+        "path": "assets\\images\\1629691028532--acombine function into class.PNG",
+        "size": 16208
+        
+      },
+      {
+        "fieldname": "avatar",
+        "originalname": "acombine function into class.PNG",
+        "encoding": "7bit",
+        "mimetype": "image/png",
+        "destination": "./assets/images",
+        "filename": "1629691028532--acombine function into class.PNG",
+        "path": "assets\\images\\1629691028532--acombine function into class.PNG",
+        "size": 16208
+      }
+    ]
+    ```
+ 
+* **Error Response:**
+
+    * **Code:** 400 Failed upload files<br />
+        **Content:** 
+        ```json
+        { 
+            "message": "Failed upload files!",
+            "description": "Error Message"
+         }
+        ```
+
+
+
 
 <br>
 <br>
